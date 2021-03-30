@@ -14,13 +14,6 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -42,6 +35,13 @@
     <a href="https://github.com/Rubix982/Findex/issues">Request Feature</a>
   </p>
 </p>
+
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -69,14 +69,16 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 A list of commonly used resources that I find helpful are listed in the acknowledgements.
+
+This Django :heart: ReactJS template has been made using [*vintasoftware/django-react-boilerplate*](https://github.com/vintasoftware/django-react-boilerplate).
+
+This `README.md` template has been copied and modified from [*othneildrew/Best-README-Template*](https://github.com/othneildrew/Best-README-Template/blob/master/README.md).
 
 ### Built With
 
@@ -91,7 +93,9 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
+
 * npm
+
   ```sh
   npm install npm@latest -g
   ```
@@ -100,14 +104,19 @@ This is an example of how to list things you need to use the software and how to
 
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
+
    ```sh
    git clone https://github.com/Rubix982/Findex.git
    ```
+
 3. Install NPM packages
+
    ```sh
    npm install
    ```
+
 4. Enter your API in `config.js`
+
    ```JS
    const API_KEY = 'ENTER YOUR API';
    ```
@@ -143,13 +152,14 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-- Name - *Saif Ul Islam*
-- GitHub - [@Rubix982](https://github.com/yRubix982)
-- Email- saifulislam84210@gmail.com
-- Project Link: [https://github.com/Rubix982/Findex](https://github.com/Rubix982/Findex)
+* Name - *Saif Ul Islam*
+* GitHub - [@Rubix982](https://github.com/yRubix982)
+* Email- saifulislam84210@gmail.com
+* Project Link: [https://github.com/Rubix982/Findex](https://github.com/Rubix982/Findex)
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
+
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 * [Img Shields](https://shields.io)
 * [Choose an Open Source License](https://choosealicense.com)
@@ -161,7 +171,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * [Sticky Kit](http://leafo.net/sticky-kit)
 * [JVectorMap](http://jvectormap.com)
 * [Font Awesome](https://fontawesome.com)
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
