@@ -80,6 +80,12 @@ This Django :heart: ReactJS template has been made using [*vintasoftware/django-
 
 This `README.md` template has been copied and modified from [*othneildrew/Best-README-Template*](https://github.com/othneildrew/Best-README-Template/blob/master/README.md).
 
+The `LucidChart` diagram for the whole component level desciption of the assignment is show below,
+
+<figure class="video_container">
+  <iframe src="https://lucid.app/lucidchart/invitations/accept/1030873f-a542-4a77-be4b-6eeca9f78128?viewport_loc=-121%2C1347%2C2219%2C1123%2C0_0" frameborder="0" allowfullscreen="true"> </iframe>
+</figure>
+
 ### Built With
 
 This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section.
