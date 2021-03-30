@@ -77,78 +77,89 @@ def load_stop_words():
             # Appending to the `stop_words` list
             stop_words_list.append(line)
 
+
+def pipeline(line, nltk_string_tokenizer,
+             porter_stemmer_to_stem, wordnet_lemmatizer_for_lemma,
+             list_for_stop_words: list):
+    '''
+    TOKENIZER
+
+    This does the following steps described below. 
+
+    Taking an example,
+    "“Yes,” said Ivan Abramitch, looking pensively out of window, “it is
+    never too late to marry."
+
+    The following steps demonstrate what they do
+
+    1. First removes punctuation, then tokenizes them, using nltk
+
+    Yes said Ivan Abramitch looking pensively out of window it is 
+    never too late to marry
+
+    ['Yes', 'said', 'Ivan', 'Abramitch', 'looking', 'pensively', 'out', 
+    'of', 'window', 'it', 'is', 'never', 'too', 'late', 'to', 'marry']
+
+    2. Uses case folding - that is, just makes the tokens lower cased
+
+    ['yes', 'said', 'ivan', 'abramitch', 'looking', 'pensively', 'out', 
+    'of', 'window', 'it', 'is', 'never', 'too', 'late', 'to', 'marry']
+
+    3. Finally, removing tokens
+
+    ['yes', 'said', 'ivan', 'abramitch', 'looking', 'pensively', 'out', 
+    'of', 'window', 'it', 'is', 'never', 'too', 'late', 'marry']
+    '''
+    tokens = tokenizer(line, nltk_string_tokenizer, stop_words_list)
+
+    '''
+    PORTER STEMMER
+
+    This turns our previous input into the following
+    >>> ['ye', 'said', 'ivan', 'abramitch', 'look', 'pensiv', 'out', 'of', 
+    'window', 'it', 'is', 'never', 'too', 'late', 'to', 'marri']
+    '''
+    tokens = stemmer_func(tokens, porter_stemmer_to_stem)
+
+    '''
+    # LEMMATIZATION
+
+    This turns our previous input into the following
+    >>> ['ye', 'said', 'ivan', 'abramitch', 'look', 'pensiv', 'out', 'of', 
+    'window', 'it', 'is', 'never', 'too', 'late', 'to', 'marri']
+    '''
+    tokens = lemmatize_func(tokens, wordnet_lemmatizer_for_lemma)
+
+    '''
+    CHECK AGAIN FOR STOP WORDS
+
+    Parse tokens list again if any punctuation result through
+    stemmer and lemma
+    '''
+    for token in tokens:
+        if token.strip(' ') in list_for_stop_words:
+            tokens.remove(token)
+
+    return tokens
+
 # preprocess data files
 
 
-def process_pipeline():
-    for file_path in file_paths:
-        with open(file_path, mode='r') as file:
+def process_pipeline(file_path: str, total_word_list: list):
 
-            for line in file:
+    with open(file_path, mode='r') as file:
 
-                '''
-                TOKENIZER
+        for line in file:
 
-                This does the following steps described below. 
+            # Simply extract the tokens
+            tokens = pipeline(line, nltk_tokenizer,
+                              porter_stemmer, wordnet_lemmatizer,
+                              stop_words_list)
 
-                Taking an example,
-                "“Yes,” said Ivan Abramitch, looking pensively out of window, “it is
-                never too late to marry."
-
-                The following steps demonstrate what they do
-
-                1. First removes punctuation, then tokenizes them, using nltk
-
-                Yes said Ivan Abramitch looking pensively out of window it is 
-                never too late to marry
-
-                ['Yes', 'said', 'Ivan', 'Abramitch', 'looking', 'pensively', 'out', 
-                'of', 'window', 'it', 'is', 'never', 'too', 'late', 'to', 'marry']
-
-                2. Uses case folding - that is, just makes the tokens lower cased
-
-                ['yes', 'said', 'ivan', 'abramitch', 'looking', 'pensively', 'out', 
-                'of', 'window', 'it', 'is', 'never', 'too', 'late', 'to', 'marry']
-
-                3. Finally, removing tokens
-
-                ['yes', 'said', 'ivan', 'abramitch', 'looking', 'pensively', 'out', 
-                'of', 'window', 'it', 'is', 'never', 'too', 'late', 'marry']
-                '''
-                tokens = tokenizer(line, nltk_tokenizer, stop_words_list)
-
-                '''
-                PORTER STEMMER
-
-                This turns our previous input into the following
-                >>> ['ye', 'said', 'ivan', 'abramitch', 'look', 'pensiv', 'out', 'of', 
-                'window', 'it', 'is', 'never', 'too', 'late', 'to', 'marri']
-                '''
-                tokens = stemmer_func(tokens, porter_stemmer)
-
-                '''
-                # LEMMATIZATION
-
-                This turns our previous input into the following
-                >>> ['ye', 'said', 'ivan', 'abramitch', 'look', 'pensiv', 'out', 'of', 
-                'window', 'it', 'is', 'never', 'too', 'late', 'to', 'marri']
-                '''
-                tokens = lemmatize_func(tokens, wordnet_lemmatizer)
-
-                '''
-                CHECK AGAIN FOR STOP WORDS
-
-                Parse tokens list again if any punctuation result through
-                stemmer and lemma
-                '''
-                for idx, token in enumerate(tokens):
-                    if token.strip(' ') in stop_words_list:
-                        tokens.remove(token)
-
-                # Append the tokens in a final list
-                for token in tokens:
-                    if token not in total_words and not token.isnumeric():
-                        total_words.append(token)
+            # Append the tokens in a final list
+            for token in tokens:
+                if token not in total_word_list and not token.isnumeric():
+                    total_word_list.append(token)
 
 
 def save_total_words():
@@ -164,7 +175,7 @@ def save_total_words():
     '''
     with open(f"{dist_path}/Total-Words.csv", mode='w') as file:
         for idx, word in enumerate(total_words):
-            file.write(f"{idx}, {word},\n")
+            file.write(f"{idx},{word},\n")
 
 
 def data_load_and_save():
@@ -190,7 +201,8 @@ def data_load_and_save():
     3. Stemmer
     4. Lemmatization 
     '''
-    process_pipeline()
+    for file_path in file_paths:
+        process_pipeline(file_path, total_words)
 
     '''
     Saves the total_words list as a TEXT file at the
