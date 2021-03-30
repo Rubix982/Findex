@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Dev Hearted</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preload" href="/assets/css/app.css?v=8d20a6e9f9" as="style" />
+    <link rel="preload" href="/assets/js/manifest.js?v=8d20a6e9f9" as="script" />
+    <link rel="preload" href="/assets/js/vendor/content-api.min.js?v=8d20a6e9f9" as="script" />
+    <link rel="preload" href="/assets/js/vendor.js?v=8d20a6e9f9" as="script" />
+    <link rel="preload" href="/assets/js/app.js?v=8d20a6e9f9" as="script" />
+    <link rel="preconnect" href="https://polyfill.io">
+    <link rel="dns-prefetch" href="https://polyfill.io">
+
+      <link rel="preload" href="/assets/css/home.css?v=8d20a6e9f9" as="style" />
+  <link rel="preload" href="/assets/css/listing.css?v=8d20a6e9f9" as="style" />
+  <link rel="preload" href="/assets/js/home.js?v=8d20a6e9f9" as="script" />
+
+
+    <style>
+      /* These font-faces are here to make fonts work if the Ghost instance is installed in a subdirectory */
+
+      /* source-sans-pro-regular */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: local('SourceSansPro-Regular'),
+            url("/assets/fonts/source-sans-pro/latin/source-sans-pro-regular.woff2?v=8d20a6e9f9") format('woff2'),
+            url("/assets/fonts/source-sans-pro/latin/source-sans-pro-regular.woff?v=8d20a6e9f9") format('woff');
+      }
+
+      /* source-sans-pro-600 */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: local('SourceSansPro-SemiBold'),
+            url("/assets/fonts/source-sans-pro/latin/source-sans-pro-600.woff2?v=8d20a6e9f9") format('woff2'),
+            url("/assets/fonts/source-sans-pro/latin/source-sans-pro-600.woff?v=8d20a6e9f9") format('woff');
+      }
+
+      /* source-sans-pro-700 */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: local('SourceSansPro-Bold'),
+            url("/assets/fonts/source-sans-pro/latin/source-sans-pro-700.woff2?v=8d20a6e9f9") format('woff2'),
+            url("/assets/fonts/source-sans-pro/latin/source-sans-pro-700.woff?v=8d20a6e9f9") format('woff');
+      }
+
+      /* iconmoon */
+      @font-face {
+        font-family: 'icomoon';
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+        src: url("/assets/fonts/icomoon/icomoon.eot?101fc3?v=8d20a6e9f9");
+        src: url("/assets/fonts/icomoon/icomoon.eot?101fc3#iefix?v=8d20a6e9f9") format('embedded-opentype'),
+        url("/assets/fonts/icomoon/icomoon.ttf?101fc3?v=8d20a6e9f9") format('truetype'),
+        url("/assets/fonts/icomoon/icomoon.woff?101fc3?v=8d20a6e9f9") format('woff'),
+        url("/assets/fonts/icomoon/icomoon.svg?101fc3#icomoon?v=8d20a6e9f9") format('svg');
+      }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/app.css?v=8d20a6e9f9" media="screen" />
+
+      <link rel="stylesheet" type="text/css" href="/assets/css/home.css?v=8d20a6e9f9" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/listing.css?v=8d20a6e9f9" media="screen" />
+
+
+    
+
+    <meta name="description" content="Stories, ideas, geeky content,  developer enthusiast, and constantly moving in computer science / software engineering. Learning, growing, and thinking." />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://dev-hearted.software/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="next" href="https://dev-hearted.software/page/2/" />
+    
+    <meta property="og:site_name" content="Dev Hearted" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Dev Hearted" />
+    <meta property="og:description" content="Stories, ideas, geeky content,  developer enthusiast, and constantly moving in computer science / software engineering. Learning, growing, and thinking." />
+    <meta property="og:url" content="https://dev-hearted.software/" />
+    <meta property="og:image" content="https://dev-hearted.software/content/images/2020/08/simon-abrams-k_T9Zj3SE8k-unsplash-2.jpg" />
+    <meta property="article:publisher" content="https://www.facebook.com/Dev-Hearted-571628933520239/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dev Hearted" />
+    <meta name="twitter:description" content="Stories, ideas, geeky content,  developer enthusiast, and constantly moving in computer science / software engineering. Learning, growing, and thinking." />
+    <meta name="twitter:url" content="https://dev-hearted.software/" />
+    <meta name="twitter:image" content="https://dev-hearted.software/content/images/2020/08/simon-abrams-k_T9Zj3SE8k-unsplash-1.jpg" />
+    <meta name="twitter:site" content="@HeartedDev" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1333" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Dev Hearted",
+        "url": "https://dev-hearted.software/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://dev-hearted.software/content/images/2021/03/ghost-logo-1024x439-jpg.jpg"
+        }
+    },
+    "url": "https://dev-hearted.software/",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://dev-hearted.software/content/images/2021/03/neonbrand-3GZNPBLImWc-unsplash.jpg",
+        "width": 2000,
+        "height": 1333
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://dev-hearted.software/"
+    },
+    "description": "Stories, ideas, geeky content,  developer enthusiast, and constantly moving in computer science / software engineering. Learning, growing, and thinking."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 3.27" />
+    <link rel="alternate" type="application/rss+xml" title="Dev Hearted" href="https://dev-hearted.software/rss/" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-167573827-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-167573827-1');
+</script>
+
+    <script>
+      // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+      const ghostHost = "https://dev-hearted.software"
+      // @license-end
+    </script>
+  </head>
+  <body class="home-template">
+    
+
+
+
+
+<header class="m-header with-picture js-header">
+  <div class="m-mobile-topbar" data-aos="fade-down">
+    <button class="m-icon-button in-mobile-topbar js-open-menu" aria-label="Open menu">
+      <span class="icon-menu" aria-hidden="true"></span>
+    </button>
+      <a href="https://dev-hearted.software" class="m-logo in-mobile-topbar">
+        <img src="/content/images/2021/03/ghost-logo-1024x439-jpg.jpg" alt="Dev Hearted">
+      </a>
+    <button class="m-icon-button in-mobile-topbar js-open-search" aria-label="Open search">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <div class="m-menu js-menu">
+    <button class="m-icon-button outlined as-close-menu js-close-menu" aria-label="Close menu">
+      <span class="icon-close"></span>
+    </button>
+    <div class="m-menu__main" data-aos="fade-down">
+      <div class="l-wrapper">
+        <div class="m-nav js-main-nav">
+          <nav class="m-nav__left js-main-nav-left" role="navigation" aria-label="Main menu">
+            <ul>
+                <li class="only-desktop">
+                  <a href="https://dev-hearted.software" class="m-logo">
+                    <img src="/content/images/2021/03/ghost-logo-1024x439-jpg.jpg" alt="Dev Hearted">
+                  </a>
+                </li>
+                
+    <li class="nav-home nav-current">
+      <a href="https://dev-hearted.software/">Home</a>
+    </li>
+    <li class="nav-author">
+      <a href="https://dev-hearted.software/author/saif/">Author</a>
+    </li>
+    <li class="nav-search">
+      <a href="https://dev-hearted.software/search/">Search</a>
+    </li>
+
+                <li class="more">
+                  <span>
+                    <a href="javascript:void(0);" class="js-open-secondary-menu">
+                      More
+                      <span class="icon-chevron-down" aria-hidden="true"></span>
+                    </a>
+                  </span>
+                </li>
+              <li class="submenu-option js-submenu-option">
+                <button class="m-icon-button in-menu-main more js-toggle-submenu" aria-label="Open submenu">
+                  <span class="icon-more" aria-hidden="true"></span>
+                </button>
+                <div class="m-submenu js-submenu">
+                  <div class="l-wrapper in-submenu">
+                    <section class="m-recent-articles">
+                      <h3 class="m-submenu-title in-recent-articles">Recent articles</h3>
+                          <div class="glide js-recent-slider">
+                            <div class="glide__track" data-glide-el="track">
+                              <div class="glide__slides">
+                                <div class="glide__slide">
+                                  <a href="/im-not-what-i-thought-i-would-be-without-you-what-can-i-say/" class="m-recent-article">
+                                    <div class="m-recent-article__picture ">
+                                        <img src="https://images.unsplash.com/photo-1445561696415-deadc6a2adaa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDIzfHxtb3JuaW5nfGVufDB8fHx8MTYxNjkyOTk4NQ&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000" loading="lazy" alt="">
+                                    </div>
+                                    <h3 class="m-recent-article__title js-recent-article-title" title="I&#x27;m not what I thought I would be without you, what can I say?">
+                                      I&#x27;m not what I thought I would be without you, what can I say?
+                                    </h3>
+                                    <span class="m-recent-article__date">21 hours ago</span>
+                                  </a>
+                                </div>
+                                <div class="glide__slide">
+                                  <a href="/nobody-told-me-how-important-patience-was/" class="m-recent-article">
+                                    <div class="m-recent-article__picture ">
+                                        <img src="https://images.unsplash.com/photo-1449885381849-88def7e55fa0?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fHBhdGllbmNlfGVufDB8fHx8MTYxNjkxMzM4NA&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000" loading="lazy" alt="">
+                                    </div>
+                                    <h3 class="m-recent-article__title js-recent-article-title" title="Nobody told me how important patience was">
+                                      Nobody told me how important patience was
+                                    </h3>
+                                    <span class="m-recent-article__date">a day ago</span>
+                                  </a>
+                                </div>
+                                <div class="glide__slide">
+                                  <a href="/for-whatever-good-happens-for-whatever-bad-happens/" class="m-recent-article">
+                                    <div class="m-recent-article__picture ">
+                                        <img src="https://images.unsplash.com/photo-1570714436355-2556087f0912?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDV8fGJ1cyUyMHJpZGV8ZW58MHx8fHwxNjE2Njc5NzU3&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000" loading="lazy" alt="">
+                                    </div>
+                                    <h3 class="m-recent-article__title js-recent-article-title" title="For whatever good happens, for whatever bad happens">
+                                      For whatever good happens, for whatever bad happens
+                                    </h3>
+                                    <span class="m-recent-article__date">4 days ago</span>
+                                  </a>
+                                </div>
+                                <div class="glide__slide">
+                                  <a href="/i-dont-know-what-happend/" class="m-recent-article">
+                                    <div class="m-recent-article__picture ">
+                                        <img src="/content/images/size/w300/2021/03/Screenshot_20210323_002136.png" loading="lazy" alt="">
+                                    </div>
+                                    <h3 class="m-recent-article__title js-recent-article-title" title="I Don&#x27;t Know What Happened, Not Enough To Know, Not Anymore">
+                                      I Don&#x27;t Know What Happened, Not Enough To Know, Not Anymore
+                                    </h3>
+                                    <span class="m-recent-article__date">7 days ago</span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </section>
+                    <section class="m-tags">
+                      <h3 class="m-submenu-title">Tags</h3>
+                        <ul>
+                            <li>
+                              <a href="/tag/chrome/">Chrome</a>
+                            </li>
+                            <li>
+                              <a href="/tag/coding/">Coding</a>
+                            </li>
+                            <li>
+                              <a href="/tag/compare/">Compare</a>
+                            </li>
+                            <li>
+                              <a href="/tag/databases/">Databases</a>
+                            </li>
+                            <li>
+                              <a href="/tag/design/">Design</a>
+                            </li>
+                            <li>
+                              <a href="/tag/developement/">Developement</a>
+                            </li>
+                            <li>
+                              <a href="/tag/future/">future</a>
+                            </li>
+                            <li>
+                              <a href="/tag/gatsbyjs/">GatsbyJS</a>
+                            </li>
+                            <li>
+                              <a href="/tag/google/">Google</a>
+                            </li>
+                            <li>
+                              <a href="/tag/graph/">Graph</a>
+                            </li>
+                        </ul>
+                    </section>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <div class="m-nav__right">
+            <button class="m-icon-button in-menu-main js-open-search" aria-label="Open search">
+              <span class="icon-search" aria-hidden="true"></span>
+            </button>
+            <div class="m-toggle-darkmode js-tooltip" data-tippy-content="Toggle dark mode" tabindex="0">
+              <label for="toggle-darkmode" class="sr-only">
+                Toggle dark mode
+              </label>
+              <input id="toggle-darkmode" type="checkbox" class="js-toggle-darkmode">
+              <div>
+                <span class="icon-moon moon" aria-hidden="true"></span>
+                <span class="icon-sunny sun" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div id="secondary-navigation-template" style="display: none;">
+      
+  <ul class="m-secondary-menu">
+      <li class="nav-tas nav-current">
+        <a href="https://dev-hearted.software/">Tas</a>
+      </li>
+  </ul>
+
+    </div>
+</header>
+
+<main class="main-wrap">
+  
+  <section class="m-hero with-picture" data-aos="fade">
+    <div class="m-hero__picture ">
+      <img
+        srcset="
+          /content/images/size/w300/2021/03/neonbrand-3GZNPBLImWc-unsplash.jpg 300w,
+          /content/images/size/w600/2021/03/neonbrand-3GZNPBLImWc-unsplash.jpg 600w,
+          /content/images/size/w1000/2021/03/neonbrand-3GZNPBLImWc-unsplash.jpg 1000w,
+          /content/images/size/w2000/2021/03/neonbrand-3GZNPBLImWc-unsplash.jpg 2000w
+        "
+        sizes="(max-width: 600px) 600px, (max-width: 1000px) 1000px, 2000px"
+        src="/content/images/size/w1000/2021/03/neonbrand-3GZNPBLImWc-unsplash.jpg"
+        alt=""
+      />
+    </div>
+  <div class="m-hero__content" data-aos="fade-down">
+    <h1 class="m-hero-title bigger">Dev Hearted</h1>
+      <p class="m-hero-description bigger">Developer stories, ideas, insights, software engineering, computer science, a blog dedicate to all about the tech life</p>
+    <a href="https://dev-hearted.software/newsletter" class="m-button filled js-newsletter">Subscribe</a>
+  </div>
+  </section>
+  <div class="l-content">
+    <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
+      <div class="l-grid centered">
+            <div class="m-featured-slider glide js-featured-slider">
+              <div class="glide__track" data-glide-el="track">
+                <div class="m-featured-slider__list glide__slides">
+                    <div class="m-featured-slider__list__item glide__slide js-featured-slide">
+                      <article class="m-featured-article ">
+                        <div class="m-featured-article__picture">
+                            <style>
+                              #featured-bg-606064232021a304e8157fc5 {
+                                background-image: url(https://images.unsplash.com/photo-1445561696415-deadc6a2adaa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDIzfHxtb3JuaW5nfGVufDB8fHx8MTYxNjkyOTk4NQ&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000);
+                              }
+                            
+                              @media(max-width: 768px) {
+                                #featured-bg-606064232021a304e8157fc5 {
+                                  background-image: url(https://images.unsplash.com/photo-1445561696415-deadc6a2adaa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDIzfHxtb3JuaW5nfGVufDB8fHx8MTYxNjkyOTk4NQ&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000);
+                                }
+                              }
+                            </style>
+                            <div id="featured-bg-606064232021a304e8157fc5"></div>
+                        </div>
+                        <div class="m-featured-article__meta">
+                          <a href="https://dev-hearted.software/author/saif/" class="m-featured-article__author js-tooltip" aria-label="Saif Ul Islam" data-tippy-content="Posted by Saif Ul Islam ">
+                              <div style="background-image: url(/content/images/size/w100/2020/09/download.png);"></div>
+                          </a>
+                            <a href="https://dev-hearted.software/tag/novo-amor/" class="m-featured-article__tag">Novo Amor</a>
+                        </div>
+                        <div class="m-featured-article__ribbon">
+                          <span class="icon-star"></span>
+                          <span>Featured</span>
+                        </div>
+                        <a href="/im-not-what-i-thought-i-would-be-without-you-what-can-i-say/" class="m-featured-article__content">
+                          <h2 class="m-featured-article__title js-featured-article-title" title="I&#x27;m not what I thought I would be without you, what can I say?">
+                            I&#x27;m not what I thought I would be without you, what can I say?
+                          </h2>
+                          <div class="m-featured-article__timestamp">
+                            <span>21 hours ago</span>
+                            <span>&bull;</span>
+                            <span>1 min read</span>
+                          </div>
+                        </a>
+                      </article>
+                    </div>
+                    <div class="m-featured-slider__list__item glide__slide js-featured-slide">
+                      <article class="m-featured-article ">
+                        <div class="m-featured-article__picture">
+                            <style>
+                              #featured-bg-6060236a2021a304e8157fb2 {
+                                background-image: url(https://images.unsplash.com/photo-1449885381849-88def7e55fa0?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fHBhdGllbmNlfGVufDB8fHx8MTYxNjkxMzM4NA&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000);
+                              }
+                            
+                              @media(max-width: 768px) {
+                                #featured-bg-6060236a2021a304e8157fb2 {
+                                  background-image: url(https://images.unsplash.com/photo-1449885381849-88def7e55fa0?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fHBhdGllbmNlfGVufDB8fHx8MTYxNjkxMzM4NA&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000);
+                                }
+                              }
+                            </style>
+                            <div id="featured-bg-6060236a2021a304e8157fb2"></div>
+                        </div>
+                        <div class="m-featured-article__meta">
+                          <a href="https://dev-hearted.software/author/saif/" class="m-featured-article__author js-tooltip" aria-label="Saif Ul Islam" data-tippy-content="Posted by Saif Ul Islam ">
+                              <div style="background-image: url(/content/images/size/w100/2020/09/download.png);"></div>
+                          </a>
+                            <a href="https://dev-hearted.software/tag/ideas/" class="m-featured-article__tag">ideas</a>
+                        </div>
+                        <div class="m-featured-article__ribbon">
+                          <span class="icon-star"></span>
+                          <span>Featured</span>
+                        </div>
+                        <a href="/nobody-told-me-how-important-patience-was/" class="m-featured-article__content">
+                          <h2 class="m-featured-article__title js-featured-article-title" title="Nobody told me how important patience was">
+                            Nobody told me how important patience was
+                          </h2>
+                          <div class="m-featured-article__timestamp">
+                            <span>a day ago</span>
+                            <span>&bull;</span>
+                            <span>1 min read</span>
+                          </div>
+                        </a>
+                      </article>
+                    </div>
+                    <div class="m-featured-slider__list__item glide__slide js-featured-slide">
+                      <article class="m-featured-article ">
+                        <div class="m-featured-article__picture">
+                            <style>
+                              #featured-bg-605c8f40eb74966c9865fd26 {
+                                background-image: url(https://images.unsplash.com/photo-1570714436355-2556087f0912?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDV8fGJ1cyUyMHJpZGV8ZW58MHx8fHwxNjE2Njc5NzU3&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000);
+                              }
+                            
+                              @media(max-width: 768px) {
+                                #featured-bg-605c8f40eb74966c9865fd26 {
+                                  background-image: url(https://images.unsplash.com/photo-1570714436355-2556087f0912?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDV8fGJ1cyUyMHJpZGV8ZW58MHx8fHwxNjE2Njc5NzU3&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000);
+                                }
+                              }
+                            </style>
+                            <div id="featured-bg-605c8f40eb74966c9865fd26"></div>
+                        </div>
+                        <div class="m-featured-article__meta">
+                          <a href="https://dev-hearted.software/author/saif/" class="m-featured-article__author js-tooltip" aria-label="Saif Ul Islam" data-tippy-content="Posted by Saif Ul Islam ">
+                              <div style="background-image: url(/content/images/size/w100/2020/09/download.png);"></div>
+                          </a>
+                            <a href="https://dev-hearted.software/tag/ideas/" class="m-featured-article__tag">ideas</a>
+                        </div>
+                        <div class="m-featured-article__ribbon">
+                          <span class="icon-star"></span>
+                          <span>Featured</span>
+                        </div>
+                        <a href="/for-whatever-good-happens-for-whatever-bad-happens/" class="m-featured-article__content">
+                          <h2 class="m-featured-article__title js-featured-article-title" title="For whatever good happens, for whatever bad happens">
+                            For whatever good happens, for whatever bad happens
+                          </h2>
+                          <div class="m-featured-article__timestamp">
+                            <span>4 days ago</span>
+                            <span>&bull;</span>
+                            <span>3 min read</span>
+                          </div>
+                        </a>
+                      </article>
+                    </div>
+                    <div class="m-featured-slider__list__item glide__slide js-featured-slide">
+                      <article class="m-featured-article ">
+                        <div class="m-featured-article__picture">
+                            <style>
+                              #featured-bg-6058ed44eb74966c9865fcf3 {
+                                background-image: url(/content/images/size/w1000/2021/03/Screenshot_20210323_002136.png);
+                              }
+                            
+                              @media(max-width: 768px) {
+                                #featured-bg-6058ed44eb74966c9865fcf3 {
+                                  background-image: url(/content/images/size/w600/2021/03/Screenshot_20210323_002136.png);
+                                }
+                              }
+                            </style>
+                            <div id="featured-bg-6058ed44eb74966c9865fcf3"></div>
+                        </div>
+                        <div class="m-featured-article__meta">
+                          <a href="https://dev-hearted.software/author/saif/" class="m-featured-article__author js-tooltip" aria-label="Saif Ul Islam" data-tippy-content="Posted by Saif Ul Islam ">
+                              <div style="background-image: url(/content/images/size/w100/2020/09/download.png);"></div>
+                          </a>
+                            <a href="https://dev-hearted.software/tag/novo-amor/" class="m-featured-article__tag">Novo Amor</a>
+                        </div>
+                        <div class="m-featured-article__ribbon">
+                          <span class="icon-star"></span>
+                          <span>Featured</span>
+                        </div>
+                        <a href="/i-dont-know-what-happend/" class="m-featured-article__content">
+                          <h2 class="m-featured-article__title js-featured-article-title" title="I Don&#x27;t Know What Happened, Not Enough To Know, Not Anymore">
+                            I Don&#x27;t Know What Happened, Not Enough To Know, Not Anymore
+                          </h2>
+                          <div class="m-featured-article__timestamp">
+                            <span>7 days ago</span>
+                            <span>&bull;</span>
+                            <span>1 min read</span>
+                          </div>
+                        </a>
+                      </article>
+                    </div>
+                    <div class="m-featured-slider__list__item glide__slide js-featured-slide">
+                      <article class="m-featured-article ">
+                        <div class="m-featured-article__picture">
+                            <style>
+                              #featured-bg-6058addbeb74966c9865fcce {
+                                background-image: url(https://images.unsplash.com/photo-1522542550221-31fd19575a2d?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fHdlYnxlbnwwfHx8fDE2MTY0MjQ3NDc&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000);
+                              }
+                            
+                              @media(max-width: 768px) {
+                                #featured-bg-6058addbeb74966c9865fcce {
+                                  background-image: url(https://images.unsplash.com/photo-1522542550221-31fd19575a2d?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fHdlYnxlbnwwfHx8fDE2MTY0MjQ3NDc&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000);
+                                }
+                              }
+                            </style>
+                            <div id="featured-bg-6058addbeb74966c9865fcce"></div>
+                        </div>
+                        <div class="m-featured-article__meta">
+                          <a href="https://dev-hearted.software/author/saif/" class="m-featured-article__author js-tooltip" aria-label="Saif Ul Islam" data-tippy-content="Posted by Saif Ul Islam ">
+                              <div style="background-image: url(/content/images/size/w100/2020/09/download.png);"></div>
+                          </a>
+                            <a href="https://dev-hearted.software/tag/web/" class="m-featured-article__tag">Web</a>
+                        </div>
+                        <div class="m-featured-article__ribbon">
+                          <span class="icon-star"></span>
+                          <span>Featured</span>
+                        </div>
+                        <a href="/u/" class="m-featured-article__content">
+                          <h2 class="m-featured-article__title js-featured-article-title" title="Using Opinionated Frameworks, while Keeping In Touch With Vanilla Ideas">
+                            Using Opinionated Frameworks, while Keeping In Touch With Vanilla Ideas
+                          </h2>
+                          <div class="m-featured-article__timestamp">
+                            <span>7 days ago</span>
+                            <span>&bull;</span>
+                            <span>1 min read</span>
+                          </div>
+                        </a>
+                      </article>
+                    </div>
+                </div>
+              </div>
+              <div data-glide-el="controls" class="glide__arrows js-featured-slider-controls">
+                <button data-glide-dir="<" class="m-icon-button in-featured-articles glide-prev js-featured-slider-previous" aria-label="Previous">
+                  <span class="icon-arrow-left" aria-hidden="true"></span>
+                </button>
+                <button data-glide-dir=">" class="m-icon-button in-featured-articles glide-next js-featured-slider-next" aria-label="Next">
+                  <span class="icon-arrow-right" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+        
+  <article class="m-article-card  post tag-novo-amor tag-music featured">
+    <div class="m-article-card__picture">
+      <a href="/im-not-what-i-thought-i-would-be-without-you-what-can-i-say/" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <img class="m-article-card__picture-background" src="https://images.unsplash.com/photo-1445561696415-deadc6a2adaa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDIzfHxtb3JuaW5nfGVufDB8fHx8MTYxNjkyOTk4NQ&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000" loading="lazy" alt="">
+      <a href="https://dev-hearted.software/author/saif/" class="m-article-card__author js-tooltip" aria-label="Saif Ul Islam" data-tippy-content="Posted by Saif Ul Islam ">
+          <div style="background-image: url(/content/images/size/w100/2020/09/download.png);"></div>
+      </a>
+        <a href="/im-not-what-i-thought-i-would-be-without-you-what-can-i-say/" class="m-article-card__featured js-tooltip" data-tippy-content="Featured" aria-label="Featured">
+          <span class="icon-star" aria-hidden="true"></span>
+        </a>
+    </div>
+      <div class="m-article-card__info">
+        <a href="https://dev-hearted.software/tag/novo-amor/" class="m-article-card__tag">Novo Amor</a>
+      <a href="/im-not-what-i-thought-i-would-be-without-you-what-can-i-say/" class="m-article-card__info-link" aria-label="I&#x27;m not what I thought I would be without you, what can I say?">
+        <div>
+          <h2 class="m-article-card__title js-article-card-title " title="I&#x27;m not what I thought I would be without you, what can I say?">
+            I&#x27;m not what I thought I would be without you, what can I say?
+          </h2>
+        </div>
+        <div class="m-article-card__timestamp">
+          <span>21 hours ago</span>
+          <span>&bull;</span>
+          <span>1 min read</span>
+        </div>
+      </a>
+    </div>
+  </article>
+  <article class="m-article-card  post tag-ideas tag-thinking featured">
+    <div class="m-article-card__picture">
+      <a href="/nobody-told-me-how-important-patience-was/" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <img class="m-article-card__picture-background" src="https://images.unsplash.com/photo-1449885381849-88def7e55fa0?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fHBhdGllbmNlfGVufDB8fHx8MTYxNjkxMzM4NA&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000" loading="lazy" alt="">
+      <a href="https://dev-hearted.software/author/saif/" class="m-article-card__author js-tooltip" aria-label="Saif Ul Islam" data-tippy-content="Posted by Saif Ul Islam ">
+          <div style="background-image: url(/content/images/size/w100/2020/09/download.png);"></div>
+      </a>
+        <a href="/nobody-told-me-how-important-patience-was/" class="m-article-card__featured js-tooltip" data-tippy-content="Featured" aria-label="Featured">
+          <span class="icon-star" aria-hidden="true"></span>
+        </a>
+    </div>
+      <div class="m-article-card__info">
+        <a href="https://dev-hearted.software/tag/ideas/" class="m-article-card__tag">ideas</a>
+      <a href="/nobody-told-me-how-important-patience-was/" class="m-article-card__info-link" aria-label="Nobody told me how important patience was">
+        <div>
+          <h2 class="m-article-card__title js-article-card-title " title="Nobody told me how important patience was">
+            Nobody told me how important patience was
+          </h2>
+        </div>
+        <div class="m-article-card__timestamp">
+          <span>a day ago</span>
+          <span>&bull;</span>
+          <span>1 min read</span>
+        </div>
+      </a>
+    </div>
+  </article>
+  <article class="m-article-card  post tag-ideas tag-thinking featured">
+    <div class="m-article-card__picture">
+      <a href="/for-whatever-good-happens-for-whatever-bad-happens/" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <img class="m-article-card__picture-background" src="https://images.unsplash.com/photo-1570714436355-2556087f0912?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDV8fGJ1cyUyMHJpZGV8ZW58MHx8fHwxNjE2Njc5NzU3&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000" loading="lazy" alt="">
+      <a href="https://dev-hearted.software/author/saif/" class="m-article-card__author js-tooltip" aria-label="Saif Ul Islam" data-tippy-content="Posted by Saif Ul Islam ">
+          <div style="background-image: url(/content/images/size/w100/2020/09/download.png);"></div>
+      </a>
+        <a href="/for-whatever-good-happens-for-whatever-bad-happens/" class="m-article-card__featured js-tooltip" data-tippy-content="Featured" aria-label="Featured">
+          <span class="icon-star" aria-hidden="true"></span>
+        </a>
+    </div>
+      <div class="m-article-card__info">
+        <a href="https://dev-hearted.software/tag/ideas/" class="m-article-card__tag">ideas</a>
+      <a href="/for-whatever-good-happens-for-whatever-bad-happens/" class="m-article-card__info-link" aria-label="For whatever good happens, for whatever bad happens">
+        <div>
+          <h2 class="m-article-card__title js-article-card-title " title="For whatever good happens, for whatever bad happens">
+            For whatever good happens, for whatever bad happens
+          </h2>
+        </div>
+        <div class="m-article-card__timestamp">
+          <span>4 days ago</span>
+          <span>&bull;</span>
+          <span>3 min read</span>
+        </div>
+      </a>
+    </div>
+  </article>
+  <article class="m-article-card  post tag-novo-amor tag-music tag-lyrics featured">
+    <div class="m-article-card__picture">
+      <a href="/i-dont-know-what-happend/" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <img class="m-article-card__picture-background" src="/content/images/size/w600/2021/03/Screenshot_20210323_002136.png" loading="lazy" alt="">
+      <a href="https://dev-hearted.software/author/saif/" class="m-article-card__author js-tooltip" aria-label="Saif Ul Islam" data-tippy-content="Posted by Saif Ul Islam ">
+          <div style="background-image: url(/content/images/size/w100/2020/09/download.png);"></div>
+      </a>
+        <a href="/i-dont-know-what-happend/" class="m-article-card__featured js-tooltip" data-tippy-content="Featured" aria-label="Featured">
+          <span class="icon-star" aria-hidden="true"></span>
+        </a>
+    </div>
+      <div class="m-article-card__info">
+        <a href="https://dev-hearted.software/tag/novo-amor/" class="m-article-card__tag">Novo Amor</a>
+      <a href="/i-dont-know-what-happend/" class="m-article-card__info-link" aria-label="I Don&#x27;t Know What Happened, Not Enough To Know, Not Anymore">
+        <div>
+          <h2 class="m-article-card__title js-article-card-title " title="I Don&#x27;t Know What Happened, Not Enough To Know, Not Anymore">
+            I Don&#x27;t Know What Happened, Not Enough To Know, Not Anymore
+          </h2>
+        </div>
+        <div class="m-article-card__timestamp">
+          <span>7 days ago</span>
+          <span>&bull;</span>
+          <span>1 min read</span>
+        </div>
+      </a>
+    </div>
+  </article>
+  <article class="m-article-card  post tag-web tag-gatsbyjs tag-coding tag-developement featured">
+    <div class="m-article-card__picture">
+      <a href="/u/" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <img class="m-article-card__picture-background" src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fHdlYnxlbnwwfHx8fDE2MTY0MjQ3NDc&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000" loading="lazy" alt="">
+      <a href="https://dev-hearted.software/author/saif/" class="m-article-card__author js-tooltip" aria-label="Saif Ul Islam" data-tippy-content="Posted by Saif Ul Islam ">
+          <div style="background-image: url(/content/images/size/w100/2020/09/download.png);"></div>
+      </a>
+        <a href="/u/" class="m-article-card__featured js-tooltip" data-tippy-content="Featured" aria-label="Featured">
+          <span class="icon-star" aria-hidden="true"></span>
+        </a>
+    </div>
+      <div class="m-article-card__info">
+        <a href="https://dev-hearted.software/tag/web/" class="m-article-card__tag">Web</a>
+      <a href="/u/" class="m-article-card__info-link" aria-label="Using Opinionated Frameworks, while Keeping In Touch With Vanilla Ideas">
+        <div>
+          <h2 class="m-article-card__title js-article-card-title " title="Using Opinionated Frameworks, while Keeping In Touch With Vanilla Ideas">
+            Using Opinionated Frameworks, while Keeping In Touch With Vanilla Ideas
+          </h2>
+        </div>
+        <div class="m-article-card__timestamp">
+          <span>7 days ago</span>
+          <span>&bull;</span>
+          <span>1 min read</span>
+        </div>
+      </a>
+    </div>
+  </article>
+  <article class="m-article-card  post tag-music featured">
+    <div class="m-article-card__picture">
+      <a href="/throwback-to-season-2-coke-studio-with-jo-meray/" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <img class="m-article-card__picture-background" src="https://images.unsplash.com/photo-1483000805330-4eaf0a0d82da?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDh8fG11c2ljfGVufDB8fHx8MTYxNjMyMjU0MA&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000" loading="lazy" alt="">
+      <a href="https://dev-hearted.software/author/saif/" class="m-article-card__author js-tooltip" aria-label="Saif Ul Islam" data-tippy-content="Posted by Saif Ul Islam ">
+          <div style="background-image: url(/content/images/size/w100/2020/09/download.png);"></div>
+      </a>
+        <a href="/throwback-to-season-2-coke-studio-with-jo-meray/" class="m-article-card__featured js-tooltip" data-tippy-content="Featured" aria-label="Featured">
+          <span class="icon-star" aria-hidden="true"></span>
+        </a>
+    </div>
+      <div class="m-article-card__info">
+        <a href="https://dev-hearted.software/tag/music/" class="m-article-card__tag">Music</a>
+      <a href="/throwback-to-season-2-coke-studio-with-jo-meray/" class="m-article-card__info-link" aria-label="Throwback To Season 2, Coke Studio, With &quot;Jo Meray&quot;">
+        <div>
+          <h2 class="m-article-card__title js-article-card-title " title="Throwback To Season 2, Coke Studio, With &quot;Jo Meray&quot;">
+            Throwback To Season 2, Coke Studio, With &quot;Jo Meray&quot;
+          </h2>
+        </div>
+        <div class="m-article-card__timestamp">
+          <span>8 days ago</span>
+          <span>&bull;</span>
+          <span>2 min read</span>
+        </div>
+      </a>
+    </div>
+  </article>
+  <article class="m-article-card  post tag-video-games tag-coding tag-developement featured">
+    <div class="m-article-card__picture">
+      <a href="/getting-good-at-anything-just-takes-time/" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <img class="m-article-card__picture-background" src="https://images.unsplash.com/photo-1581310118098-898fd1e56f23?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDMyfHx2aWRlb2dhbWV8ZW58MHx8fHwxNjE2MzIxODgx&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000" loading="lazy" alt="">
+      <a href="https://dev-hearted.software/author/saif/" class="m-article-card__author js-tooltip" aria-label="Saif Ul Islam" data-tippy-content="Posted by Saif Ul Islam ">
+          <div style="background-image: url(/content/images/size/w100/2020/09/download.png);"></div>
+      </a>
+        <a href="/getting-good-at-anything-just-takes-time/" class="m-article-card__featured js-tooltip" data-tippy-content="Featured" aria-label="Featured">
+          <span class="icon-star" aria-hidden="true"></span>
+        </a>
+    </div>
+      <div class="m-article-card__info">
+        <a href="https://dev-hearted.software/tag/video-games/" class="m-article-card__tag">Video Games</a>
+      <a href="/getting-good-at-anything-just-takes-time/" class="m-article-card__info-link" aria-label="Getting good at anything just takes time">
+        <div>
+          <h2 class="m-article-card__title js-article-card-title " title="Getting good at anything just takes time">
+            Getting good at anything just takes time
+          </h2>
+        </div>
+        <div class="m-article-card__timestamp">
+          <span>8 days ago</span>
+          <span>&bull;</span>
+          <span>1 min read</span>
+        </div>
+      </a>
+    </div>
+  </article>
+  <article class="m-article-card  post tag-ideas tag-google featured">
+    <div class="m-article-card__picture">
+      <a href="/getting-into-the-flow-day-2/" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <img class="m-article-card__picture-background" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDJ8fGNvbmNlbnRyYXRpb258ZW58MHx8fHwxNjE2MTcwNzA2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000" loading="lazy" alt="">
+      <a href="https://dev-hearted.software/author/saif/" class="m-article-card__author js-tooltip" aria-label="Saif Ul Islam" data-tippy-content="Posted by Saif Ul Islam ">
+          <div style="background-image: url(/content/images/size/w100/2020/09/download.png);"></div>
+      </a>
+        <a href="/getting-into-the-flow-day-2/" class="m-article-card__featured js-tooltip" data-tippy-content="Featured" aria-label="Featured">
+          <span class="icon-star" aria-hidden="true"></span>
+        </a>
+    </div>
+      <div class="m-article-card__info">
+        <a href="https://dev-hearted.software/tag/ideas/" class="m-article-card__tag">ideas</a>
+      <a href="/getting-into-the-flow-day-2/" class="m-article-card__info-link" aria-label="Getting Into The Flow, Day 2">
+        <div>
+          <h2 class="m-article-card__title js-article-card-title " title="Getting Into The Flow, Day 2">
+            Getting Into The Flow, Day 2
+          </h2>
+        </div>
+        <div class="m-article-card__timestamp">
+          <span>10 days ago</span>
+          <span>&bull;</span>
+          <span>2 min read</span>
+        </div>
+      </a>
+    </div>
+  </article>
+  <article class="m-article-card  post tag-ideas">
+    <div class="m-article-card__picture">
+      <a href="/getting-into-the-flow-day-1/" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <img class="m-article-card__picture-background" src="https://images.unsplash.com/photo-1555529941-66b8c99c4593?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDd8fHVuc3BsYXNofGVufDB8fHx8MTYxNjA2MDgxNg&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000" loading="lazy" alt="">
+      <a href="https://dev-hearted.software/author/saif/" class="m-article-card__author js-tooltip" aria-label="Saif Ul Islam" data-tippy-content="Posted by Saif Ul Islam ">
+          <div style="background-image: url(/content/images/size/w100/2020/09/download.png);"></div>
+      </a>
+    </div>
+      <div class="m-article-card__info">
+        <a href="https://dev-hearted.software/tag/ideas/" class="m-article-card__tag">ideas</a>
+      <a href="/getting-into-the-flow-day-1/" class="m-article-card__info-link" aria-label="Getting Into The Flow, Day 1">
+        <div>
+          <h2 class="m-article-card__title js-article-card-title " title="Getting Into The Flow, Day 1">
+            Getting Into The Flow, Day 1
+          </h2>
+        </div>
+        <div class="m-article-card__timestamp">
+          <span>11 days ago</span>
+          <span>&bull;</span>
+          <span>1 min read</span>
+        </div>
+      </a>
+    </div>
+  </article>
+  <article class="m-article-card  post tag-novo-amor tag-song tag-lyrics featured">
+    <div class="m-article-card__picture">
+      <a href="/ive-been-awake-in-every-state-line-trying-to-make-us-last-a-lifetime/" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <img class="m-article-card__picture-background" src="/content/images/size/w600/2021/03/maxresdefault.jpg" loading="lazy" alt="">
+      <a href="https://dev-hearted.software/author/saif/" class="m-article-card__author js-tooltip" aria-label="Saif Ul Islam" data-tippy-content="Posted by Saif Ul Islam ">
+          <div style="background-image: url(/content/images/size/w100/2020/09/download.png);"></div>
+      </a>
+        <a href="/ive-been-awake-in-every-state-line-trying-to-make-us-last-a-lifetime/" class="m-article-card__featured js-tooltip" data-tippy-content="Featured" aria-label="Featured">
+          <span class="icon-star" aria-hidden="true"></span>
+        </a>
+    </div>
+      <div class="m-article-card__info">
+        <a href="https://dev-hearted.software/tag/novo-amor/" class="m-article-card__tag">Novo Amor</a>
+      <a href="/ive-been-awake-in-every-state-line-trying-to-make-us-last-a-lifetime/" class="m-article-card__info-link" aria-label="I&#x27;ve Been Awake In Every State line, Trying To Make Us Last A Lifetime...">
+        <div>
+          <h2 class="m-article-card__title js-article-card-title " title="I&#x27;ve Been Awake In Every State line, Trying To Make Us Last A Lifetime...">
+            I&#x27;ve Been Awake In Every State line, Trying To Make Us Last A Lifetime...
+          </h2>
+        </div>
+        <div class="m-article-card__timestamp">
+          <span>12 days ago</span>
+          <span>&bull;</span>
+          <span>1 min read</span>
+        </div>
+      </a>
+    </div>
+  </article>
+      </div>
+    </div>
+    
+<div class="l-wrapper">
+  <nav class="m-pagination" aria-label="Pagination">
+    <span class="m-pagination__text">Page 1 of 3</span>
+      <a href="/page/2/" class="m-icon-button filled in-pagination-right" aria-label="Older posts">
+        <span class="icon-arrow-right"></span>
+      </a>
+  </nav>
+</div>
+
+  </div>
+</main>
+
+
+
+    
+<div class="m-search js-search" role="dialog" aria-modal="true" aria-label="Search">
+  <button class="m-icon-button outlined as-close-search js-close-search" aria-label="Close search">
+    <span class="icon-close" aria-hidden="true"></span>
+  </button>
+  <div class="m-search__content">
+    <form class="m-search__form">
+      <div class="pos-relative">
+        <span class="icon-search m-search-icon" aria-hidden="true"></span>
+        <label for="search-input" class="sr-only">
+          Type to search
+        </label>
+        <input id="search-input" type="text" class="m-input in-search js-input-search" placeholder="Type to search">
+      </div>
+    </form>
+    <div class="js-search-results hide"></div>
+    <p class="m-not-found align-center hide js-no-results">
+      No results for your search, please try with something else.
+    </p>
+  </div>
+</div>
+
+    
+<footer class="m-footer">
+  <div class="m-footer__content">
+      <nav class="m-footer__nav-secondary" role="navigation" aria-label="Secondary menu in footer">
+        
+  <ul class="m-secondary-menu">
+      <li class="nav-tas nav-current">
+        <a href="https://dev-hearted.software/">Tas</a>
+      </li>
+  </ul>
+
+      </nav>
+    <nav class="m-footer-social">
+        <a href="https://www.facebook.com/Dev-Hearted-571628933520239/" target="_blank" rel="noopener" aria-label="Facebook">
+          <span class="icon-facebook" aria-hidden="true"></span>
+        </a>
+        <a href="https://twitter.com/HeartedDev" target="_blank" rel="noopener" aria-label="Twitter">
+          <span class="icon-twitter" aria-hidden="true"></span>
+        </a>
+      <a href="https://dev-hearted.software/rss" aria-label="RSS">
+        <span class="icon-rss" aria-hidden="true"></span>
+      </a>
+    </nav>
+    <p class="m-footer-copyright">
+      <span>Dev Hearted &copy; 2021</span>
+      <span>&nbsp; &bull; &nbsp;</span>
+      <span>Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a></span>
+    </p>
+    <p class="m-footer-copyright jslicense">
+      <a href="/assets/html/javascript.html?v=8d20a6e9f9" rel="jslicense">JavaScript license information</a>
+    </p>
+  </div>
+</footer>
+
+    <div class="m-alert success subscribe js-alert" data-notification="subscribe">
+  Great! You&#x27;ve successfully subscribed.
+  <button class="m-alert__close js-notification-close" aria-label="Close">
+    <span class="icon-close"></span>
+  </button>
+</div>
+
+<div class="m-alert success signup js-alert" data-notification="signup">
+  Great! Next, complete checkout for full access.
+  <button class="m-alert__close js-notification-close" aria-label="Close">
+    <span class="icon-close"></span>
+  </button>
+</div>
+
+<div class="m-alert success signin js-alert" data-notification="signin">
+  Welcome back! You&#x27;ve successfully signed in.
+  <button class="m-alert__close js-notification-close" aria-label="Close">
+    <span class="icon-close"></span>
+  </button>
+</div>
+
+<div class="m-alert success checkout js-alert" data-notification="checkout">
+  Success! Your account is fully activated, you now have access to all content.
+  <button class="m-alert__close js-notification-close" aria-label="Close">
+    <span class="icon-close"></span>
+  </button>
+</div>
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver%2CPromise%2CArray.prototype.includes%2CString.prototype.endsWith%2CString.prototype.startsWith%2CObject.assign%2CNodeList.prototype.forEach"></script>
+    <script defer src="/assets/js/manifest.js?v=8d20a6e9f9"></script>
+    <script defer src="/assets/js/vendor/content-api.min.js?v=8d20a6e9f9"></script>
+    <script defer src="/assets/js/vendor.js?v=8d20a6e9f9"></script>
+    <script defer src="/assets/js/app.js?v=8d20a6e9f9"></script>
+
+      <script defer src="/assets/js/home.js?v=8d20a6e9f9"></script>
+
+
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v8.0" nonce="RlMu0IK3"></script>
+  </body>
+</html>
