@@ -49,3 +49,4 @@ tmp_email/
 # CUSTOM
 yarn.lock
 package-lock.json
+server/venv/

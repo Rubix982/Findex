@@ -1,18 +1,13 @@
-import React from "react";
-import { render } from 'react-dom';
-import { ThemeProvider } from "@chakra-ui/core";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import * as serviceWorker from './serviceWorker';
+import App from './App';
 
-import Header from "./components/Header";
-import Todos from "./components/Todos";
+ReactDOM.render((
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+), document.getElementById('root'));
 
-function App() {
-  return (
-    <ThemeProvider>
-      <Header />
-      <Todos />
-    </ThemeProvider>
-  )
-}
-
-const rootElement = document.getElementById("root")
-render(<App />, rootElement)
+serviceWorker.unregister();
