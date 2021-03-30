@@ -1,176 +1,180 @@
-[![License: MIT](https://img.shields.io/github/license/vintasoftware/django-react-boilerplate.svg)](LICENSE.txt)
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-# Findex
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
 
-## About
-A [Django](https://www.djangoproject.com/) project boilerplate/template with lots of state of the art libraries and tools like:
-- [React](https://facebook.github.io/react/), for building interactive UIs
-- [django-js-reverse](https://github.com/ierror/django-js-reverse), for generating URLs on JS
-- [React Bootstrap](https://https://react-bootstrap.github.io/), for responsive styling
-- [Webpack](https://webpack.js.org/), for bundling static assets
-- [Celery](http://www.celeryproject.org/), for background worker tasks
-- [WhiteNoise](http://whitenoise.evans.io/en/stable/) with [brotlipy](https://github.com/python-hyper/brotlipy), for efficient static files serving
-- [prospector](https://prospector.landscape.io/en/master/) and [ESLint](https://eslint.org/) with [pre-commit](http://pre-commit.com/) for automated quality assurance (does not replace proper testing!)
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-For continuous integration, a [CircleCI](https://circleci.com/) configuration `.circleci/config.yml` is included.
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/Rubix982/Findex">
+    <img src="assets/img/2.png" alt="Logo">
+  </a>
 
-Also, includes a Heroku `app.json` and a working Django `production.py` settings, enabling easy deployments with ['Deploy to Heroku' button](https://devcenter.heroku.com/articles/heroku-button). Those Heroku plugins are included in `app.json`:
-- PostgreSQL, for DB
-- Redis, for Celery
-- Sendgrid, for e-mail sending
-- Papertrail, for logs and platform errors alerts (must set them manually)
+  <h3 align="center">Findex</h3>
 
-This is a good starting point for modern Python/JavaScript web projects.
+  <p align="center">
+    A boolean, information retrieval model
+    <br />
+    <a href="https://github.com/Rubix982/Findex"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    ·
+    <a href="https://github.com/Rubix982/Findex/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Rubix982/Findex/issues">Request Feature</a>
+  </p>
+</p>
 
-## Running
-### Tools
-- Setup [editorconfig](http://editorconfig.org/), [prospector](https://prospector.landscape.io/en/master/) and [ESLint](http://eslint.org/) in the text editor you will use to develop.
-
-### Setup
-- Inside the `backend` folder, do the following:
-- Create a copy of `Findex/settings/local.py.example`:  
-  `cp Findex/settings/local.py.example Findex/settings/local.py`
-- Create a copy of `.env.example`:
-  `cp .env.example .env`
-
-### If you are using Docker:
-- Open a new command line window and go to the project's directory.
-- Create the migrations for `users` app:  
-  `make docker_makemigrations`
-- Run the migrations:
-  `make docker_migrate`
-- Run the project:
-  `make docker_up`
-- To access the logs for each service, run:
-  `make docker_logs <service name>` (either `backend`, `frontend`, etc)
-- Stop the project:
-  `make docker_down`
-
-#### Adding new dependencies
-- Open a new command line window and go to the project's directory.
-- To install a new frontend package, run:
-  `make docker_npm_install <package name>`
-- To update the frontend dependencies using the current `package.json`, run:
-  `make docker_update_frontend_deps`
-- To update the backend dependencies using the current `requirements.in` and `dev-requirements.in`, run:
-  `make docker_update_backend_deps`
-
-### If you are not using Docker:
-#### Setup and run the frontend app
-- Open a new command line window and go to the project's directory.
-- `npm install`
-- `npm run start`
-
-#### Setup the backend app
-- Open a new command line window and go to the project's directory.
-- Create a new virtualenv with either [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/) or only virtualenv: `mkvirtualenv Findex` or `python -m venv Findex-venv`
-  > If you're using Python's virtualenv (the latter option), make sure to create the environment with the suggested name, otherwise it will be added to version control.
-- Make sure the virtualenv is activated `workon Findex` or `source Findex-venv/bin/activate`
-- Run `make compile_install_requirements` to install the requirements
-  > Please make sure you have already setup PostgreSQL on your environment before installing the requirements
-
-  > In case you wish to use a Conda virtual environment, please remove the line `export PIP_REQUIRE_VIRTUALENV=true; \` from `Makefile`
-
-#### Run the backend app
-- With the virtualenv enabled, go to the `backend` directory.
-- Create the migrations for `users` app: 
-  `python manage.py makemigrations`
-- Run the migrations:
-  `python manage.py migrate`
-- Run the project:
-  `python manage.py runserver`
-
-#### Setup Celery
-- Open a command line window and go to the project's directory
-- `workon Findex` or `source Findex-venv/bin/activate` depending on if you are using virtualenvwrapper or just virtualenv.
-- `python manage.py celery`
-
-#### Mailhog
-- For development, we use Mailhog to test our e-mail workflows, since it allows us to inspect the messages to validate they're correctly built
-  - Docker users already have it setup and running once they start the project
-  - For non-Docker users, please have a look [here](https://github.com/mailhog/MailHog#installation) for instructions on how to setup Mailhog on specific environments
-> The project expects Mailhog SMTP server to be running on port 1025, you may alter that by changing `EMAIL_PORT` on settings
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
 
 
-### Testing
-`make test`
 
-Will run django tests using `--keepdb` and `--parallel`. You may pass a path to the desired test module in the make command. E.g.:
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-`make test someapp.tests.test_views`
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-### Adding new pypi libs
-Add the libname to either `requirements.in` or `dev-requirements.in`, then either upgrade the libs with `make upgrade` or manually compile it and then,  install.
-`pip-compile requirements.in > requirements.txt` or `make upgrade`
-`pip install -r requirements.txt`
+A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
-### Cleaning example code
-Before you start creating your own apps remove the example:
-- Run the command `make clean_examples` in order to clean up the example apps from the front and backend.
-- Deregister the example app by removing `'exampleapp.apps.ExampleappConfig'` from ``backend/Findex/settings/base.py``.
-- Adjust ``backend/Findex/urls.py`` to point to your newly created Django app and remove the path configuration that redirects to the deleted example app.
+### Built With
 
-## Deployment 
-### Setup
-This project comes with an `app.json` file, which can be used to create an app on Heroku from a GitHub repository.
+This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section.
 
-Before deploying, please make sure you've generated an up-to-date `requirements.txt` file containing the Python dependencies. This is necessary even if you've used Docker for local runs. Do so by following [these instructions](#setup-the-backend-app).
+<!-- GETTING STARTED -->
+## Getting Started
 
-After setting up the project, you can init a repository and push it on GitHub. If your repository is public, you can use the following button:
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) 
+### Prerequisites
 
-If you are in a private repository, access the following link replacing `$YOUR_REPOSITORY_LINK$` with your repository link.
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
-- `https://heroku.com/deploy?template=$YOUR_REPOSITORY_LINK$`
+### Installation
 
-Remember to fill the `ALLOWED_HOSTS` with the URL of your app, the default on heroku is `appname.herokuapp.com`. Replace `appname` with your heroku app name.
+1. Get a free API Key at [https://example.com](https://example.com)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/Rubix982/Findex.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Enter your API in `config.js`
+   ```JS
+   const API_KEY = 'ENTER YOUR API';
+   ```
 
-### Sentry
+<!-- USAGE EXAMPLES -->
+## Usage
 
-[Sentry](https://sentry.io) is already set up on the project. For production, add `SENTRY_DSN` environment variable on Heroku, with your Sentry DSN as the value.
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-You can test your Sentry configuration by deploying the boilerplate with the sample page and clicking on the corresponding button.
+_For more examples, please refer to the [Documentation](https://example.com)_
 
-### Sentry source maps for JS files
+<!-- ROADMAP -->
+## Roadmap
 
-The `bin/post_compile` script has a step to push Javascript source maps to Sentry, however some environment variables need to be set on Heroku.
+See the [open issues](https://github.com/Rubix982/Findex/issues) for a list of proposed features (and known issues).
 
-You need to enable Heroku dyno metadata on your Heroku App. Use the following command on Heroku CLI:
-
-- `heroku labs:enable runtime-dyno-metadata -a <app name>`
-
-The environment variables that need to be set are:
-
-- `SENTRY_ORG` - Name of the Sentry Organization that owns your Sentry Project.
-- `SENTRY_PROJECT_NAME` - Name of the Sentry Project.
-- `SENTRY_API_KEY` - Sentry API key that needs to be generated on Sentry. [You can find or create authentication tokens within Sentry](https://sentry.io/api/).
-
-After enabling dyno metadata and setting the environment variables, your next Heroku Deploys will create a release on Sentry where the release name is the commit SHA, and it will push the source maps to it.
-
-## Linting
-- Manually with `prospector` and `npm run lint` on project root.
-- During development with an editor compatible with prospector and ESLint.
-
-## Pre-commit hooks
-- Run `pre-commit install` to enable the hook into your git repo. The hook will run automatically for each commit.
-- Run `git commit -m "Your message" -n` to skip the hook if you need.
-
-## Opinionated Settings
-Some settings defaults were decided based on Vinta's experiences. Here's the rationale behind them:
-
-### `CELERY_ACKS_LATE = True`
-We believe Celery tasks should be idempotent. So for us it's safe to set `CELERY_ACKS_LATE = True` to ensure tasks will be re-queued after a worker failure. Check Celery docs on ["Should I use retry or acks_late?"](https://docs.celeryproject.org/en/latest/faq.html#should-i-use-retry-or-acks-late) for more info.
-
+<!-- CONTRIBUTING -->
 ## Contributing
 
-If you wish to contribute to this project, please first discuss the change you wish to make via an [issue](https://github.com/vintasoftware/django-react-boilerplate/issues).
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-Check our [contributing guide](https://github.com/vintasoftware/django-react-boilerplate/blob/master/CONTRIBUTING.md) to learn more about our development process and how you can test your changes to the boilerplate.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Commercial Support
-This project, as other Vinta open-source projects, is used in products of Vinta clients. We are always looking for exciting work, so if you need any commercial support, feel free to get in touch: contact@vinta.com.br
+<!-- LICENSE -->
+## License
 
-Copyright (c) 2021 Vinta Serviços e Soluções Tecnológicas Ltda.
+Distributed under the MIT License. See `LICENSE` for more information.
 
-[MIT License](LICENSE.txt)
+<!-- CONTACT -->
+## Contact
+
+- Name - *Saif Ul Islam*
+- GitHub - [@Rubix982](https://github.com/yRubix982)
+- Email- saifulislam84210@gmail.com
+- Project Link: [https://github.com/Rubix982/Findex](https://github.com/Rubix982/Findex)
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+* [Img Shields](https://shields.io)
+* [Choose an Open Source License](https://choosealicense.com)
+* [GitHub Pages](https://pages.github.com)
+* [Animate.css](https://daneden.github.io/animate.css)
+* [Loaders.css](https://connoratherton.com/loaders)
+* [Slick Carousel](https://kenwheeler.github.io/slick)
+* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
+* [Sticky Kit](http://leafo.net/sticky-kit)
+* [JVectorMap](http://jvectormap.com)
+* [Font Awesome](https://fontawesome.com)
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/Rubix982/Findex.svg?style=for-the-badge
+[contributors-url]: https://github.com/Rubix982/Findex/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Rubix982/Findex.svg?style=for-the-badge
+[forks-url]: https://github.com/Rubix982/Findex/network/members
+[stars-shield]: https://img.shields.io/github/stars/Rubix982/Findex.svg?style=for-the-badge
+[stars-url]: https://github.com/Rubix982/Findex/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Rubix982/Findex.svg?style=for-the-badge
+[issues-url]: https://github.com/Rubix982/Findex/issues
+[license-shield]: https://img.shields.io/github/license/Rubix982/Findex.svg?style=for-the-badge
+[license-url]: https://github.com/Rubix982/Findex/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/saif-ul-islam-93786b187/
+[product-screenshot]: https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/images/screenshot.png
