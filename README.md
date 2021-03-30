@@ -18,7 +18,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/Rubix982/Findex">
-    <img src="assets/img/2.png" alt="Logo">
+    <img src="https://raw.githubusercontent.com/Rubix982/Findex/aaa7a0cc3aa983a065b53e0e190bb0e64d33ba4f/assets/img/2.png" alt="Logo">
   </a>
 
   <h3 align="center">Findex</h3>

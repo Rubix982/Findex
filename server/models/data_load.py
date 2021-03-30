@@ -162,9 +162,9 @@ def save_total_words():
     Store the list `total_words` at the location
     `../dist/Total-Words.txt`
     '''
-    with open(f"{dist_path}/Total-Words.txt", mode='w') as file:
-        for word in total_words:
-            file.write(f"{word}\n")
+    with open(f"{dist_path}/Total-Words.csv", mode='w') as file:
+        for idx, word in enumerate(total_words):
+            file.write(f"{idx}, {word},\n")
 
 
 def data_load_and_save():
