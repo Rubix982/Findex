@@ -90,10 +90,13 @@ file_paths = [
 
 
 def generate_positional_index(str_to_build_positional: str, positional_index: PositionalIndex):
-    for path in file_paths:
+
+    total_positions = ''
+
+    for path_index, path in enumerate(file_paths):
 
         tokens = []
-        positions = []
+        positions = ''
 
         with open(path) as file:
 
@@ -116,13 +119,18 @@ def generate_positional_index(str_to_build_positional: str, positional_index: Po
 
             # TODO - I haven't tested how accurately this works
             if token == str_to_build_positional:
-                positions.append(idx)
+                positions += f"{idx},"
 
-        positional_node = PositionNode(
-            doc_id=path.split('/')[-1].split('.')[0], position_list=positions)
+        if positions == '':
+            continue
 
-        positional_index.document_listing_positions.append(
-            positional_node.__dict__)
+        # positional_node = PositionNode(
+        #     doc_id=path.split('/')[-1].split('.')[0], position_list=positions)
+
+        positions = f"{path_index},{positions[0:-1]};"
+        total_positions = total_positions + positions
+
+    positional_index.document_listing_positions = total_positions
 
 
 def get_saved_normalized_words():
@@ -139,37 +147,40 @@ def get_saved_normalized_words():
             csv_file_path = f"{inverted_indexing_path}/{unique_word_counter+500}-{unique_word_counter+1000}.csv"
 
             # Creating a new csv file for the words if none was found
-            if int(entry[0]) >= unique_word_counter + 500:
-                if not os.path.isfile(csv_file_path):
-                    with open(csv_file_path, 'w') as file:
-                        file.write(',')
-                        for i in range(1, 50 + 1):
-                            file.write(f"{i},")
-                        file.write('\n')
-            else:
-                unique_word_counter += 500                
+            if int(entry[0]) < unique_word_counter + 500:
+                unique_word_counter += 500
+            #     if not os.path.isfile(csv_file_path):
+            #         with open(csv_file_path, 'w') as file:
+            #             file.write(',')
+            #             for i in range(1, 50 + 1):
+            #                 file.write(f"{i},")
+            #             file.write('\n')
+            # else:
 
             # generate positional index
             positional_index = PositionalIndex(
-                id=entry[0], unique_keyword=entry[1])
+                unique_hash=f"{entry[0]}")
 
             # Get the postiings from the parse
             generate_positional_index(entry[1], positional_index)
 
             content_dump = positional_index.__dict__
 
+            if content_dump['document_listing_positions'] == '':
+                content_dump.pop('document_listing_positions')
+
             # opening file to save
             with open(f"{positional_indexing_path}/{entry[1]}.json", mode='w') as file:
                 # serializing to json
-                file.write(json.dumps(content_dump, indent=4))
+                file.write(json.dumps(content_dump))
 
-            # opening file to save
-            with open(csv_file_path, 'a') as file:
-                file.write(f"{content_dump['unique_keyword']},")
-                for i in range(len(file_paths)):
-                    file.write(
-                        f"{len(content_dump['document_listing_positions'][i]['position_list'])},")
-                file.write('\n')
+            # # opening file to save
+            # with open(csv_file_path, 'a') as file:
+            #     file.write(f"{content_dump['unique_keyword']},")
+            #     for i in range(len(file_paths)):
+            #         file.write(
+            #             f"{len(content_dump['document_listing_positions'][i]['position_list'])},")
+            #     file.write('\n')
 
 
 get_saved_normalized_words()
