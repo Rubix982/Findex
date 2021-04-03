@@ -113,7 +113,8 @@ def process_data_through_pipelines():
                     data[idx] = data[idx].replace(remove_character, ' ')
                     data[idx] = re.sub(' +', ' ', data[idx].strip())
 
-            data = ' '.join([entry for entry in data if entry != '' and not entry.isnumeric()])
+            data = ' '.join([entry for entry in data if entry !=
+                             '' and not entry.isnumeric()])
             tokens = [token.lower() for token in data.split(' ')]
 
             # STEMMING ->> LEMMATIZATION
@@ -138,10 +139,10 @@ def generate_positional_index(str_to_build_positional: str, positional_index: Po
     for file_path_idx, path in enumerate(short_stories_path):
 
         positions = ''
-    
+
         with open(path) as file:
             tokens = file.readlines()[0].split(' ')
-            
+
             # TODO - I haven't tested how accurately this works
             for idx, token in enumerate(tokens):
                 if str_to_build_positional == token:
@@ -152,6 +153,7 @@ def generate_positional_index(str_to_build_positional: str, positional_index: Po
             total_positions = total_positions + positions
 
     positional_index.document_listing_positions = total_positions
+
 
 def for_line_store_file(line: str):
 
@@ -165,6 +167,7 @@ def for_line_store_file(line: str):
 
     # Determining the csv path
     # csv_file_path = f"{inverted_indexing_path}/{unique_word_counter+500}-{unique_word_counter+1000}.csv"
+    csv_file_path = f"{inverted_indexing_path}/inverted.csv"    
 
     # Creating a new csv file for the words if none was found
     if int(entry[0]) < unique_word_counter + 500:
@@ -179,22 +182,26 @@ def for_line_store_file(line: str):
 
     content_dump = positional_index.__dict__
 
-    if content_dump['document_listing_positions'] == '':
+    if content_dump['document_listing_positions'] == ['']:
         return
 
     # opening file to save
-    with open(f"{positional_indexing_path}/{entry[1]}.txt", mode='w') as file:
-        # serializing to json
-        file.write(
-            f"{content_dump['unique_hash']}-{content_dump['document_listing_positions']}")
+    with open(f"{positional_indexing_path}/positional.txt", mode='a') as positional_file, open(csv_file_path, 'a') as inverted_file:
 
-    # # opening file to save
-    # with open(csv_file_path, 'a') as file:
-    #     file.write(f"{content_dump['unique_keyword']},")
-    #     for i in range(len(file_paths)):
-    #         file.write(
-    #             f"{len(content_dump['document_listing_positions'][i]['position_list'])},")
-    #     file.write('\n')
+        final_inverted_string = ''
+        for line in content_dump['document_listing_positions'].split(';'):
+            tokens = line.split(',')
+            if line == '' or tokens == ['']:
+                continue
+            final_inverted_string += f"{tokens[0]},{len(tokens)-1};"
+
+        if final_inverted_string == '':
+            return
+        
+        positional_file.write(
+            f"{content_dump['unique_hash']}-{content_dump['document_listing_positions']}\n")
+        inverted_file.write(
+            f"{content_dump['unique_hash']}-{final_inverted_string}\n")
 
 
 def get_saved_normalized_words():
@@ -204,7 +211,6 @@ def get_saved_normalized_words():
     total_words_list = []
     with open(f"{dist_path}/Total-Words.csv") as file:
         for line in file:
-            # for_line_store_file(line)
             total_words_list.append(line)
 
     with mp.Pool(10) as p:
