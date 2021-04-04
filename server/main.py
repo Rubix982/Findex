@@ -5,6 +5,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from pydantic import BaseModel, EmailStr
 
+from controllers.simple_bool_parse import boolean_query 
+
 app = FastAPI()
 
 origins = [
@@ -20,6 +22,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+word_dict = {}
+
+with open('./dist/Total-Words.csv', mode='r') as file:
+    for line in file:
+        tokens = line.split(',')
+        word_dict[tokens[1]] = tokens[0]
 
 class QueryInput(BaseModel):
     query: str
@@ -38,5 +46,6 @@ def read_item(item_id: int, q: Optional[str] = None):
 
 @app.post("/request/")
 async def get_post_items(query: str = ""):
+    boolean_query(query)
     print(query)
     return {"Received": "Yayyyy this works!"}
