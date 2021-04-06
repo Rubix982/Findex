@@ -169,13 +169,19 @@ export default function Home({ children }) {
                             <FormLabel component="legend">Query Type</FormLabel>
                             <RadioGroup row aria-label="position" name="position" defaultValue="top">
                                 <FormControlLabel
-                                    value="Boolean"
+                                    value="Simple Boolean"
                                     control={<Radio color="primary" />}
                                     label="Boolean"
                                     labelPlacement="end"
                                 />
                                 <FormControlLabel
-                                    value="Proximity"
+                                    value="Complex Boolean"
+                                    control={<Radio color="primary" />}
+                                    label="Boolean"
+                                    labelPlacement="end"
+                                />                                
+                                <FormControlLabel
+                                    value="Proximity Search"
                                     control={<Radio color="primary" />}
                                     label="Proximity"
                                     labelPlacement="end"
