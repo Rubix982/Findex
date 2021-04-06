@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from typing import Optional
 
 from fastapi import FastAPI
@@ -5,7 +7,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from pydantic import BaseModel, EmailStr
 
-from controllers.simple_bool_parse import boolean_query 
+from src.BooleanRetrievalModel import BooleanRetrievalModel 
+
 
 app = FastAPI()
 

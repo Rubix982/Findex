@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import pathlib
 import os
 import string
@@ -275,15 +277,13 @@ class Preprocessing():
         4. Reverse back the string
         5. Append the `data/` folder path
         '''
-        self.reversed_abspath = os.path.abspath('.')[::-1]
+        self.reversed_abspath = os.path.abspath('.')
 
         # Data folder path
-        self.data_path = self.reversed_abspath[self.reversed_abspath.find(
-            '/'):len(self.reversed_abspath)][::-1] + "data"
+        self.data_path = self.reversed_abspath + "/data"
 
         # Dist folder path
-        self.dist_path = self.reversed_abspath[self.reversed_abspath.find(
-            '/'):len(self.reversed_abspath)][::-1] + "dist"
+        self.dist_path = self.reversed_abspath + "/dist"
 
         # To store the retrieved file paths
         self.file_paths = []
@@ -326,9 +326,8 @@ class Preprocessing():
                 # Appending to the `stop_words` list
                 self.stop_words_list.append(line)
 
-    def pipeline(self, line, nltk_string_tokenizeselfr,
-                 porter_stemmer_to_stem, wordnet_lemmatizer_for_lemma,
-                 list_for_stop_words: list):
+    def pipeline(self, line,
+                 porter_stemmer_to_stem, wordnet_lemmatizer_for_lemma):
         '''
         TOKENIZER
 
@@ -387,7 +386,7 @@ class Preprocessing():
         stemmer and lemma
         '''
         for token in tokens:
-            if token.strip(' ') in list_for_stop_words:
+            if token.strip(' ') in self.stop_words_list:
                 tokens.remove(token)
 
         return tokens
@@ -401,9 +400,8 @@ class Preprocessing():
             for line in file:
 
                 # Simply extract the tokens
-                tokens = self.pipeline(line, self.nltk_tokenizer,
-                                       self.porter_stemmer, self.wordnet_lemmatizer,
-                                       self.stop_words_list)
+                tokens = self.pipeline(
+                    line, self.porter_stemmer, self.wordnet_lemmatizer)
 
                 # Append the tokens in a final list
                 for token in tokens:
@@ -461,21 +459,13 @@ class Preprocessing():
 class IndexPreprocessing():
 
     def __init__(self):
-        self.reversed_abspath = os.path.abspath('.')[::-1]
+        self.reversed_abspath = os.path.abspath('.')
 
         # Data folder path
-        self.data_path = self.reversed_abspath[self.reversed_abspath.find(
-            '/'):len(self.reversed_abspath)][::-1] + "data"
+        self.data_path = self.reversed_abspath + "/data"
 
         # Dist folder path
-        self.dist_path = self.reversed_abspath[self.reversed_abspath.find(
-            '/'):len(self.reversed_abspath)][::-1] + "dist"
-
-        # Positional Indexing folder path
-        self.positional_indexing_path = self.dist_path + "/positional"
-
-        # Inverted Indexing folder path
-        self.inverted_indexing_path = self.dist_path + "/inverted"
+        self.dist_path = self.reversed_abspath + "/dist"
 
         # To store the retrieved file paths
         self.file_paths = []
@@ -490,22 +480,17 @@ class IndexPreprocessing():
         self.nltk_tokenizer = nltk.RegexpTokenizer(r"\w+")
 
         # LEMMATIZATION
-        nltk.download('wordnet')
         self.wordnet_lemmatizer = WordNetLemmatizer()
 
         # Very annoying UTF 8 characters
         self.very_annoying_utf_8_characters = [
             '\n', '\r', '\"', '\'', '.', '’', ',', '“' '”', ';', '“', '!', '”', '”', '“', '-']
 
-        # If folders donot exist
-        if not os.path.exists(self.positional_indexing_path):
-            os.makedirs(self.positional_indexing_path)
-
-        if not os.path.exists(self.inverted_indexing_path):
-            os.makedirs(self.inverted_indexing_path)
-
         # path_name_list
         self.path_name_list = []
+
+        # Stemmer
+        self.stemmer = PorterStemmer()        
 
         # patlib.Path results
         pathlib_walked_path = pathlib.Path(self.data_path).rglob('*.txt')
@@ -560,7 +545,7 @@ class IndexPreprocessing():
 
                 # STEMMING ->> LEMMATIZATION
                 tokens = [self.wordnet_lemmatizer.lemmatize(
-                    Porter.CustomPorterAlgorithm(token)) for token in tokens]
+                    self.stemmer.stem(token)) for token in tokens]
 
                 with open(f"{short_stories_path}/{path.split('/')[-1].split('.')[0]}.txt", mode='w') as file:
                     file.write(' '.join(tokens))
@@ -569,11 +554,8 @@ class IndexPreprocessing():
 
         short_stories_path = []
         total_positions = ''
-
         for path in self.file_paths:
-            new_path = path.split('/')
-            new_path[-3] = 'dist'
-            short_stories_path.append('/'.join(new_path))
+            short_stories_path.append(path.replace('data', 'dist'))
 
         for file_path_idx, path in enumerate(short_stories_path):
 
@@ -588,28 +570,15 @@ class IndexPreprocessing():
                         positions += f"{idx},"
 
             if positions != '':
-                positions = f"{file_path_idx},{positions[0:-1]};"
+                positions = f"{file_path_idx + 1},{positions[0:-1]};"
                 total_positions = total_positions + positions
 
         positional_index.document_listing_positions = total_positions
 
     def for_line_store_file(self, line: str):
 
-        global unique_word_counter
-
         # Preprocessing / cleaning
         entry = line.strip('\n').split(',')[0:2]
-
-        if os.path.exists(f"{self.positional_indexing_path}/{entry[1]}.txt"):
-            return
-
-        # Determining the csv path
-        # csv_file_path = f"{inverted_indexing_path}/{unique_word_counter+500}-{unique_word_counter+1000}.csv"
-        csv_file_path = f"{self.inverted_indexing_path}/inverted.csv"
-
-        # Creating a new csv file for the words if none was found
-        if int(entry[0]) < self.unique_word_counter + 500:
-            self.unique_word_counter += 500
 
         # generate positional index
         positional_index = PositionalIndex(
@@ -624,7 +593,7 @@ class IndexPreprocessing():
             return
 
         # opening file to save
-        with open(f"{self.positional_indexing_path}/positional.txt", mode='a') as positional_file, open(csv_file_path, 'a') as inverted_file:
+        with open(f"{self.dist_path}/positional.txt", mode='a') as positional_file, open(f"{self.dist_path}/inverted.txt", 'a') as inverted_file:
 
             final_inverted_string = ''
             for line in content_dump['document_listing_positions'].split(';'):

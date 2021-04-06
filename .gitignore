@@ -50,6 +50,4 @@ tmp_email/
 yarn.lock
 package-lock.json
 server/venv/
-server/dist/inverted
-server/dist/positional
-server/dist/ShortStories
+server/dist/
