@@ -107,7 +107,7 @@ export default function Home({ children }) {
         createCheckmarkData('Formation Of Inverted And Positonal Indexes', 'true'),
         createCheckmarkData('Simple Boolean Queries', 'true'),
         createCheckmarkData('Complex Boolean Queries', 'true'),
-        createCheckmarkData('Proximity Queries', 'false'),
+        createCheckmarkData('Proximity Queries', 'true'),
         createCheckmarkData('GUI', 'true'),
         createCheckmarkData('Easy To Read Code', 'true'),
     ];
