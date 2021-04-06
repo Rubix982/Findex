@@ -45,7 +45,9 @@
 
 ## To Use
 
-Go int `server/src`, and run the `Test.py` file with `python3 Test.py`, it should run all the test cases given in the assignment
+Go int `server/src`, and run the `Test.py` file with `python3 Test.py`, it should run all the test cases given in the assignment.
+
+See GUI [here](https://findex-ten.vercel.app/).
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
